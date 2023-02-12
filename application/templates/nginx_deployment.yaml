@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: {{ .Values.nginxDeployment.name }}
+  name: {{ .Values.nginxDeployment.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.nginxDeployment.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.nginxDeployment.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.nginxDeployment.name }}
+    spec:
+      containers:
+      - image: {{ .Values.nginxDeployment.image.name }}:{{ .Values.image.tag }}
+        name: {{ .Values.nginxDeployment.name }}
+        ports:
+        - containerPort: {{ .Values.nginxDeployment.appContainerPort }}
+          protocol: TCP
+        resources:
+{{  toYaml .Values.resources | indent 10 }}

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: {{ .Values.crossyDeployment.name }}
+  name: {{ .Values.crossyDeployment.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.crossyDeployment.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.crossyDeployment.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.crossyDeployment.name }}
+    spec:
+      containers:
+      - image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        name: {{ .Values.crossyDeployment.name }}
+        ports:
+        - containerPort: {{ .Values.crossyDeployment.appContainerPort }}
+          protocol: TCP
+        envFrom:
+        - configMapRef:
+            name: {{ .Values.configmap.name }}
+        resources:
+{{  toYaml .Values.resources | indent 10 }}
