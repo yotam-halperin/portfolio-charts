@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: crossyroad
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: yotamhalperin7/crossy-backend
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: master
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:yotam-halperin/portfolio-charts.git
+    targetRevision: HEAD
+    path: application
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=False
+    automated:
+      prune: true
+      selfHeal: true
+
+
+      

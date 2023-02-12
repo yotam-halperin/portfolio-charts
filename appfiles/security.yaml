@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:yotam-halperin/portfolio-charts.git
+    targetRevision: HEAD
+    path: security/cert-manager
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=False
+    automated:
+      prune: true
+      selfHeal: true
+
+
+      
