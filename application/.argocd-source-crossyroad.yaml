@@ -4,5 +4,5 @@ helm:
     value: yotamhalperin7/crossy-backend
     forcestring: true
   - name: image.tag
-    value: 1.0.11
+    value: 1.0.12
     forcestring: true
