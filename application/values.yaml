@@ -58,7 +58,7 @@ mysql:
     ## @param auth.rootPassword Password for the `root` user. Ignored if existing secret is provided
     ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#setting-the-root-password-on-first-run
     ##
-    rootPassword: "mycoolpassword"
+    rootPassword: ""
     ## @param auth.createDatabase Whether to create the .Values.auth.database or not
     ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#creating-a-database-on-first-run
     ##
@@ -84,7 +84,7 @@ mysql:
     ## @param auth.existingSecret Use existing secret for password details. The secret has to contain the keys `mysql-root-password`, `mysql-replication-password` and `mysql-password`
     ## NOTE: When it's set the auth.rootPassword, auth.password, auth.replicationPassword are ignored.
     ##
-    existingSecret: "" # yhportfoliosecret
+    existingSecret: yhportfoliosecret
     ## @param auth.usePasswordFiles Mount credentials as files instead of using an environment variable
     ##
     usePasswordFiles: false
