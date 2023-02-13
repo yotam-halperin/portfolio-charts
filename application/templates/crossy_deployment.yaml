@@ -21,6 +21,17 @@ spec:
         ports:
         - containerPort: {{ .Values.crossyDeployment.appContainerPort }}
           protocol: TCP
+        env:
+        - name: YH_MYSQL_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Values.configmap.name }}
+              key: YH_MYSQL_HOST
+        - name: YH_MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: yhportfoliosecret
+              key: mysql-root-password	     
         envFrom:
         - configMapRef:
             name: {{ .Values.configmap.name }}

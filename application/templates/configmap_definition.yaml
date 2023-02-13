@@ -4,5 +4,4 @@ metadata:
   name: {{ .Values.configmap.name }}
   namespace: {{ .Values.namespace }}
 data:
-  YH_MYSQL_PASSWORD: {{ .Values.mysql.auth.rootPassword }}
   YH_MYSQL_HOST: "crossyroad-mysql-primary-headless"
