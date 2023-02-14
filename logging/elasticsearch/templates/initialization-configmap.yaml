@@ -1,8 +1,8 @@
-{{- if or .Values.config .Values.extraConfig }}
+{{- if .Values.initScripts }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "common.names.fullname" . }}
+  name:  {{ printf "%s-init-scripts" (include "common.names.fullname" .) }}
   namespace: {{ include "common.names.namespace" . | quote }}
   labels: {{- include "common.labels.standard" . | nindent 4 }}
     {{- if .Values.commonLabels }}
@@ -12,12 +12,5 @@ metadata:
   annotations: {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
   {{- end }}
 data:
-  {{- if .Values.config }}
-  elasticsearch.yml: |-
-    {{- include "common.tplvalues.render" ( dict "value" .Values.config "context" $ ) | nindent 4 }}
-  {{- end }}
-  {{- if .Values.extraConfig }}
-  my_elasticsearch.yml: |-
-    {{- include "common.tplvalues.render" ( dict "value" .Values.extraConfig "context" $ ) | nindent 4 }}
-  {{- end }}
+{{- include "common.tplvalues.render" ( dict "value" .Values.initScripts "context" $ ) | nindent 4 }}
 {{- end }}
