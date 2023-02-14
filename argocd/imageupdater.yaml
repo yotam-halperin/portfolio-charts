@@ -73,7 +73,7 @@ data:
     registries:
     - name: Docker Hub
       prefix: docker.io
-      api_url: https://registry-1.docker.io
+      api_url: https://hub.docker.com/repository/docker/yotamhalperin7/crossy-backend/general
       credentials: secret:default/yhportfoliosecret#dockerhub
       default: true
 ---
