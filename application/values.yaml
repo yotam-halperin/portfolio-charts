@@ -17,13 +17,13 @@ crossyDeployment:
   appContainerPort: 5000
 
 image:
-  name: yotamhalperin7/crossy-backend
+  name: 644435390668.dkr.ecr.eu-west-2.amazonaws.com/crossyroad-baskend
   tag: 1.0.10
 
 nginxDeployment:
   name: nginx
   image: 
-    name: yotamhalperin7/crossy-frontend
+    name: 644435390668.dkr.ecr.eu-west-2.amazonaws.com/crossyroad-frontend
   replicaCount: 3
   appContainerPort: 80
 
