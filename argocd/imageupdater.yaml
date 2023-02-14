@@ -68,6 +68,14 @@ metadata:
     app.kubernetes.io/part-of: argocd-image-updater
   name: argocd-image-updater-config
   namespace: argocd
+data:
+  registries.conf: |
+    registries:
+    - name: Docker Hub
+      prefix: docker.io
+      api_url: https://registry-1.docker.io
+      credentials: secret:default/yhportfoliosecret#dockerhub
+      default: true
 ---
 apiVersion: v1
 kind: ConfigMap
