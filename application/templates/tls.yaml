@@ -6,12 +6,23 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   acme:
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://acme-staging-v02.api.letsencrypt.org/directory  # for staging
+    # server: https://acme-v02.api.letsencrypt.org/directory # for production
+
     email: yotam@email.com
     privateKeySecretRef:
       name: letsencrypt-issuer-key
+    # solvers:
+    # - http01:
+    #    ingress:
+    #      class: {{ .Values.ingress.className }}
     solvers:
-    - http01:
-       ingress:
-         class: {{ .Values.ingress.className }}
+    - dns01:
+        route53:
+          region: eu-west-2
+          hostedZoneID: Z03492862PT1PY19EQIFA
+          role: arn:aws:iam::644435390668:role/yh-eks-node-group
+      selector:
+        dnsZones:
+          - "yotam.store"
 {{- end }}
