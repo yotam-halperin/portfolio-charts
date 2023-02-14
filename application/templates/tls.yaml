@@ -21,7 +21,7 @@ spec:
         route53:
           region: eu-west-2
           hostedZoneID: Z03492862PT1PY19EQIFA
-          role: arn:aws:iam::644435390668:role/yh-eks-node-group
+          role: arn:aws:iam::644435390668:role/yh-tls-node-role
       selector:
         dnsZones:
           - "yotam.store"
