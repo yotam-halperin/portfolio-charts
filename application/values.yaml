@@ -17,7 +17,7 @@ crossyDeployment:
   appContainerPort: 5000
 
 image:
-  name: 644435390668.dkr.ecr.eu-west-2.amazonaws.com/crossyroad-baskend
+  name: 644435390668.dkr.ecr.eu-west-2.amazonaws.com/crossyroad-backend
   tag: 1.0.10
 
 nginxDeployment:
