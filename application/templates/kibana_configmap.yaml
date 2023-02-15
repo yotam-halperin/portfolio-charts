@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kibana-data
-  namespace: default
+  namespace: logging
 data:
   
   curl-script.sh: |
