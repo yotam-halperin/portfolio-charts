@@ -11,8 +11,8 @@ data:
     #Wait for Kibana to be available & healthy
     function wait_for_kibana {
         echo "Testing connection to Kibana"
-        until $(curl -k -X GET http://localhost:8081/_cluster/health); do sleep 5; done
-        until [ "$(curl -k -X GET http://localhost:8081/_cluster/health | wc -l)" == "0" ]
+        until $(curl -k -X GET http://elasticsearch-master-hl:8081/_cluster/health); do sleep 5; done
+        until [ "$(curl -k -X GET http://elasticsearch-master-hl:8081/_cluster/health | wc -l)" == "0" ]
         do sleep 5
         done
     }
@@ -20,7 +20,7 @@ data:
     #Import data view
     function import_data_view {
         echo "Importing data_view..."
-        OUTPUT=$(curl -k -X POST http://localhost:8081/api/saved_objects/_import -H "kbn-xsrf: true" --form file=@/kibana/file.ndjson)
+        OUTPUT=$(curl -k -X POST http://elasticsearch-master-hl:8081/api/saved_objects/_import -H "kbn-xsrf: true" --form file=@/kibana/file.ndjson)
         SUCCESS=$(echo ${OUTPUT} | grep -o '"successCount":1' | wc -l)
         if [[ ${SUCCESS} == "1" ]]; then
           printf "\n########## Imported data view successfully! #############################\n"
@@ -33,7 +33,7 @@ data:
     #Import dashboards
     function import_dashboards {
         echo "Importing dashboards..."
-        OUTPUT=$(curl -X POST http://localhost:8081/api/kibana/dashboards/import?exclude=index-pattern -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d @/kibana/file.json)
+        OUTPUT=$(curl -X POST http://elasticsearch-master-hl:8081/api/kibana/dashboards/import?exclude=index-pattern -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d @/kibana/file.json)
         SUCCESS=$(echo ${OUTPUT} | grep -o '"successCount":1' | wc -l)
         if [[ ${SUCCESS} == "1" ]]; then
           printf "\n########## Imported dashboards successfully! #############################\n"
@@ -48,7 +48,10 @@ data:
     import_dashboards
 
   file.ndjson: |
-    {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"mydata","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-2023.02.15","typeMeta":"{}"},"coreMigrationVersion":"8.6.0","created_at":"2023-02-15T09:09:07.361Z","id":"6388f012-7d5e-449c-9f3d-01549369ae0f","migrationVersion":{"index-pattern":"8.0.0"},"references":[],"type":"index-pattern","updated_at":"2023-02-15T09:09:07.361Z","version":"WzE3NSwxXQ=="}
+    {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"mydata","runtimeFieldMap":"{}",
+    "sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-2023.02.15","typeMeta":"{}"},"coreMigrationVersion":"8.6.0",
+    "created_at":"2023-02-15T09:09:07.361Z","id":"6388f012-7d5e-449c-9f3d-01549369ae0f","migrationVersion":{"index-pattern":"8.0.0"},
+    "references":[],"type":"index-pattern","updated_at":"2023-02-15T09:09:07.361Z","version":"WzE3NSwxXQ=="}
     {"excludedObjects":[],"excludedObjectsCount":0,"exportedCount":1,"missingRefCount":0,"missingReferences":[]}
 
   file.json: |
