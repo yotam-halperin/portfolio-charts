@@ -128,3 +128,6 @@ resources: {
   }
 }
   
+kibana:
+  serviceName: elasticsearch-master-hl
+  port: 8081
