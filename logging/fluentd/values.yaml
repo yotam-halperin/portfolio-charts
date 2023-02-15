@@ -385,10 +385,8 @@ fileConfigs:
       @type elasticsearch
       @log_level info
       include_tag_key true
-      host "elasticsearch-master"
+      host "elasticsearch-master-hl"
       port 9200
-      user elastic
-      password root
       path ""
       scheme https
       ssl_verify false
