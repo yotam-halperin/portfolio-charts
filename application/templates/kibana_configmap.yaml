@@ -11,8 +11,8 @@ data:
     #Wait for Kibana to be available & healthy
     function wait_for_kibana {
         echo "Testing connection to Kibana"
-        until $(curl -k -X GET http://elasticsearch-kibana:5601/_cluster/health); do sleep 5; done
-        until [ "$(curl -k -X GET http://elasticsearch-kibana:5601/_cluster/health | wc -l)" == "0" ]
+        until $(curl -k -X GET http://elasticsearch-kibana:5601/); do sleep 5; done
+        until [ "$(curl -k -X GET http://elasticsearch-kibana:5601/ | wc -l)" == "0" ]
         do sleep 5
         done
     }
