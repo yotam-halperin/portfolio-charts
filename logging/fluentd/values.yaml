@@ -394,8 +394,6 @@ fileConfigs:
       type_name _doc
       index_name logstash-yh
       include_timestamp true
-      logstash_format true
-      logstash_prefix logstash
       reconnect_on_error true
       <buffer>
         @type file
