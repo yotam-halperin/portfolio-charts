@@ -1,0 +1,121 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kibana-data
+data:
+  
+  curl-script.sh: |
+    #!/bin/sh
+    
+    #Wait for Kibana to be available & healthy
+    function wait_for_kibana {
+        echo "Testing connection to Kibana"
+        until $(curl -k -X GET http://localhost:8081/_cluster/health); do sleep 5; done
+        until [ "$(curl -k -X GET http://localhost:8081/_cluster/health | wc -l)" == "0" ]
+        do sleep 5
+        done
+    }
+    
+    #Import data view
+    function import_data_view {
+        echo "Importing data_view..."
+        OUTPUT=$(curl -k -X POST http://localhost:8081/api/saved_objects/_import -H "kbn-xsrf: true" --form file=@/kibana/file.ndjson)
+        SUCCESS=$(echo ${OUTPUT} | grep -o '"successCount":1' | wc -l)
+        if [[ ${SUCCESS} == "1" ]]; then
+          printf "\n########## Imported data view successfully! #############################\n"
+        else
+          printf "\n########## Failure while importing data view #############\n"
+        fi
+        echo ${OUTPUT}
+    }
+    
+    #Import dashboards
+    function import_dashboards {
+        echo "Importing dashboards..."
+        OUTPUT=$(curl -X POST http://localhost:8081/api/kibana/dashboards/import?exclude=index-pattern -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d @/kibana/file.json)
+        SUCCESS=$(echo ${OUTPUT} | grep -o '"successCount":1' | wc -l)
+        if [[ ${SUCCESS} == "1" ]]; then
+          printf "\n########## Imported dashboards successfully! #############################\n"
+        else
+          printf "\n########## Failure while importing dashboards #############\n"
+        fi
+        echo ${OUTPUT}
+    }
+    
+    wait_for_kibana
+    import_data_view
+    import_dashboards
+
+  file.ndjson: |
+    {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"mydata","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-2023.02.15","typeMeta":"{}"},"coreMigrationVersion":"8.6.0","created_at":"2023-02-15T09:09:07.361Z","id":"6388f012-7d5e-449c-9f3d-01549369ae0f","migrationVersion":{"index-pattern":"8.0.0"},"references":[],"type":"index-pattern","updated_at":"2023-02-15T09:09:07.361Z","version":"WzE3NSwxXQ=="}
+    {"excludedObjects":[],"excludedObjectsCount":0,"exportedCount":1,"missingRefCount":0,"missingReferences":[]}
+
+  file.json: |
+    {
+    "version": "8.6.0",
+    "objects": [
+        {
+        "id": "0ac267d0-ad13-11ed-9609-41113d6860dc",
+        "type": "dashboard",
+        "namespaces": [
+            "default"
+        ],
+        "updated_at": "2023-02-15T09:28:01.486Z",
+        "created_at": "2023-02-15T09:28:01.486Z",
+        "version": "WzUyNiwxXQ==",
+        "attributes": {
+            "kibanaSavedObjectMeta": {
+            "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+            },
+            "timeRestore": false,
+            "optionsJSON": "{\"useMargins\":true,\"syncColors\":false,\"syncCursor\":true,\"syncTooltips\":false,\"hidePanelTitles\":false}",
+            "description": "",
+            "panelsJSON": "[{\"version\":\"8.6.0\",\"type\":\"lens\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"ef76fe47-b225-4b83-8a6b-3a58970aa838\"},\"panelIndex\":\"ef76fe47-b225-4b83-8a6b-3a58970aa838\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsPie\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"6388f012-7d5e-449c-9f3d-01549369ae0f\",\"name\":\"indexpattern-datasource-layer-f5d9e1d0-7606-4c03-9f42-44f318a65968\"}],\"state\":{\"visualization\":{\"shape\":\"donut\",\"layers\":[{\"layerId\":\"f5d9e1d0-7606-4c03-9f42-44f318a65968\",\"primaryGroups\":[\"acff2feb-1d8d-4b46-a50b-51f961a71f81\"],\"metrics\":[\"15745c6b-6369-42c4-b7b7-438de245d02e\"],\"numberDisplay\":\"percent\",\"categoryDisplay\":\"default\",\"legendDisplay\":\"default\",\"nestedLegend\":false,\"layerType\":\"data\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"formBased\":{\"layers\":{\"f5d9e1d0-7606-4c03-9f42-44f318a65968\":{\"columns\":{\"acff2feb-1d8d-4b46-a50b-51f961a71f81\":{\"label\":\"Top 5 values of request.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"request.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"15745c6b-6369-42c4-b7b7-438de245d02e\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"include\":[],\"exclude\":[],\"includeIsRegex\":false,\"excludeIsRegex\":false}},\"15745c6b-6369-42c4-b7b7-438de245d02e\":{\"label\":\"Count of records\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"acff2feb-1d8d-4b46-a50b-51f961a71f81\",\"15745c6b-6369-42c4-b7b7-438de245d02e\"],\"incompleteColumns\":{},\"sampling\":1}}},\"textBased\":{\"layers\":{}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"hidePanelTitles\":false,\"enhancements\":{}},\"title\":\"requests\"},{\"version\":\"8.6.0\",\"type\":\"lens\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":15,\"i\":\"2cedb00f-b501-49dc-b75d-f36c4a50194c\"},\"panelIndex\":\"2cedb00f-b501-49dc-b75d-f36c4a50194c\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsXY\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"6388f012-7d5e-449c-9f3d-01549369ae0f\",\"name\":\"indexpattern-datasource-layer-88c220c4-7099-4e43-96e0-d10087e4027d\"}],\"state\":{\"visualization\":{\"legend\":{\"isVisible\":true,\"position\":\"right\"},\"valueLabels\":\"hide\",\"fittingFunction\":\"None\",\"axisTitlesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"tickLabelsVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"labelsOrientation\":{\"x\":0,\"yLeft\":0,\"yRight\":0},\"gridlinesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"preferredSeriesType\":\"bar_stacked\",\"layers\":[{\"layerId\":\"88c220c4-7099-4e43-96e0-d10087e4027d\",\"accessors\":[\"06c52332-8dfb-49ea-a07d-9994d30c828b\"],\"position\":\"top\",\"seriesType\":\"bar_stacked\",\"showGridlines\":false,\"layerType\":\"data\",\"xAccessor\":\"16a51f5e-1f21-48da-a5f2-d9af31af9e35\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"formBased\":{\"layers\":{\"88c220c4-7099-4e43-96e0-d10087e4027d\":{\"columns\":{\"16a51f5e-1f21-48da-a5f2-d9af31af9e35\":{\"label\":\"Top 5 values of method.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"method.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"06c52332-8dfb-49ea-a07d-9994d30c828b\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"include\":[],\"exclude\":[],\"includeIsRegex\":false,\"excludeIsRegex\":false}},\"06c52332-8dfb-49ea-a07d-9994d30c828b\":{\"label\":\"Count of records\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"16a51f5e-1f21-48da-a5f2-d9af31af9e35\",\"06c52332-8dfb-49ea-a07d-9994d30c828b\"],\"incompleteColumns\":{},\"sampling\":1}}},\"textBased\":{\"layers\":{}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"hidePanelTitles\":false,\"enhancements\":{}},\"title\":\"methods\"}]",
+            "title": "yotam portfolio",
+            "version": 1
+        },
+        "references": [
+            {
+            "type": "index-pattern",
+            "id": "6388f012-7d5e-449c-9f3d-01549369ae0f",
+            "name": "ef76fe47-b225-4b83-8a6b-3a58970aa838:indexpattern-datasource-layer-f5d9e1d0-7606-4c03-9f42-44f318a65968"
+            },
+            {
+            "type": "index-pattern",
+            "id": "6388f012-7d5e-449c-9f3d-01549369ae0f",
+            "name": "2cedb00f-b501-49dc-b75d-f36c4a50194c:indexpattern-datasource-layer-88c220c4-7099-4e43-96e0-d10087e4027d"
+            }
+        ],
+        "migrationVersion": {
+            "dashboard": "8.6.0"
+        },
+        "coreMigrationVersion": "8.6.0"
+        },
+        {
+        "id": "6388f012-7d5e-449c-9f3d-01549369ae0f",
+        "type": "index-pattern",
+        "namespaces": [
+            "default"
+        ],
+        "updated_at": "2023-02-15T09:09:07.361Z",
+        "created_at": "2023-02-15T09:09:07.361Z",
+        "version": "WzE3NSwxXQ==",
+        "attributes": {
+            "fieldAttrs": "{}",
+            "title": "logstash-2023.02.15",
+            "timeFieldName": "@timestamp",
+            "sourceFilters": "[]",
+            "fields": "[]",
+            "fieldFormatMap": "{}",
+            "typeMeta": "{}",
+            "runtimeFieldMap": "{}",
+            "name": "mydata"
+        },
+        "references": [],
+        "migrationVersion": {
+            "index-pattern": "8.0.0"
+        },
+        "coreMigrationVersion": "8.6.0"
+        }
+    ]
+    }

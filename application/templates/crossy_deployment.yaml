@@ -15,8 +15,6 @@ spec:
       labels:
         app: {{ .Values.crossyDeployment.name }}
     spec:
-      imagePullSecrets:
-      - name: dockerpull
       containers:
       - image: {{ .Values.image.name }}:{{ .Values.image.tag }}
         name: {{ .Values.crossyDeployment.name }}
