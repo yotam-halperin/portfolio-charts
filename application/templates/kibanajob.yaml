@@ -19,7 +19,7 @@ spec:
             defaultMode: 0777
       containers:
       - name: kibana-import
-        image: centos/centos7
+        image: centos:centos7
         imagePullPolicy: IfNotPresent
         env:
         - name: KIBANA_URL
