@@ -3,20 +3,18 @@ kind: Application
 metadata:
   name: prometheus
   namespace: argocd
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
 spec:
   project: default
   source:
-    repoURL: git@github.com:yotam-halperin/portfolio-charts.git
-    targetRevision: HEAD
-    path: monitoring/kube-prometheus-stack
+    repoURL: https://prometheus-community.github.io/helm-charts
+    chart: kube-prometheus-stack
+    targetRevision: 45.1.0
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
   syncPolicy:
     syncOptions:
-    - CreateNamespace=False
+    - CreateNamespace=true
     - ServerSideApply=true
     automated:
       prune: true

@@ -3,11 +3,6 @@ kind: Application
 metadata:
   name: crossyroad
   namespace: argocd
-  annotations:
-    argocd-image-updater.argoproj.io/image-list: yotamhalperin7/crossy-backend
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/git-branch: master
-    argocd.argoproj.io/sync-wave: "3"
 spec:
   project: default
   source:
