@@ -48,78 +48,77 @@ data:
     import_dashboards
 
   file.ndjson: |
-    {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"mydata","runtimeFieldMap":"{}",
-    "sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-yh","typeMeta":"{}"},"coreMigrationVersion":"8.6.0",
-    "created_at":"2023-02-15T09:09:07.361Z","id":"6388f012-7d5e-449c-9f3d-01549369ae0f","migrationVersion":{"index-pattern":"8.0.0"},
-    "references":[],"type":"index-pattern","updated_at":"2023-02-15T09:09:07.361Z","version":"WzE3NSwxXQ=="}
+    {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"yotam-dataview","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-yh","typeMeta":"{}"},
+    "coreMigrationVersion":"8.6.0","created_at":"2023-02-15T20:33:43.310Z","id":"6ac556f7-8858-454e-8f80-b560e59bdc5f","migrationVersion":{"index-pattern":"8.0.0"},
+    "references":[],"type":"index-pattern","updated_at":"2023-02-15T20:33:43.310Z","version":"WzUwLDFd"}
     {"excludedObjects":[],"excludedObjectsCount":0,"exportedCount":1,"missingRefCount":0,"missingReferences":[]}
 
   file.json: |
     {
-    "version": "8.6.0",
-    "objects": [
+      "version": "8.6.0",
+      "objects": [
         {
-        "id": "0ac267d0-ad13-11ed-9609-41113d6860dc",
-        "type": "dashboard",
-        "namespaces": [
+          "id": "ae566280-ad71-11ed-b461-955db46e72a3",
+          "type": "dashboard",
+          "namespaces": [
             "default"
-        ],
-        "updated_at": "2023-02-15T09:28:01.486Z",
-        "created_at": "2023-02-15T09:28:01.486Z",
-        "version": "WzUyNiwxXQ==",
-        "attributes": {
+          ],
+          "updated_at": "2023-02-15T20:45:28.616Z",
+          "created_at": "2023-02-15T20:45:28.616Z",
+          "version": "WzI0OCwxXQ==",
+          "attributes": {
             "kibanaSavedObjectMeta": {
-            "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+              "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
             },
             "timeRestore": false,
             "optionsJSON": "{\"useMargins\":true,\"syncColors\":false,\"syncCursor\":true,\"syncTooltips\":false,\"hidePanelTitles\":false}",
             "description": "",
-            "panelsJSON": "[{\"version\":\"8.6.0\",\"type\":\"lens\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"ef76fe47-b225-4b83-8a6b-3a58970aa838\"},\"panelIndex\":\"ef76fe47-b225-4b83-8a6b-3a58970aa838\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsPie\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"6388f012-7d5e-449c-9f3d-01549369ae0f\",\"name\":\"indexpattern-datasource-layer-f5d9e1d0-7606-4c03-9f42-44f318a65968\"}],\"state\":{\"visualization\":{\"shape\":\"donut\",\"layers\":[{\"layerId\":\"f5d9e1d0-7606-4c03-9f42-44f318a65968\",\"primaryGroups\":[\"acff2feb-1d8d-4b46-a50b-51f961a71f81\"],\"metrics\":[\"15745c6b-6369-42c4-b7b7-438de245d02e\"],\"numberDisplay\":\"percent\",\"categoryDisplay\":\"default\",\"legendDisplay\":\"default\",\"nestedLegend\":false,\"layerType\":\"data\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"formBased\":{\"layers\":{\"f5d9e1d0-7606-4c03-9f42-44f318a65968\":{\"columns\":{\"acff2feb-1d8d-4b46-a50b-51f961a71f81\":{\"label\":\"Top 5 values of request.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"request.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"15745c6b-6369-42c4-b7b7-438de245d02e\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"include\":[],\"exclude\":[],\"includeIsRegex\":false,\"excludeIsRegex\":false}},\"15745c6b-6369-42c4-b7b7-438de245d02e\":{\"label\":\"Count of records\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"acff2feb-1d8d-4b46-a50b-51f961a71f81\",\"15745c6b-6369-42c4-b7b7-438de245d02e\"],\"incompleteColumns\":{},\"sampling\":1}}},\"textBased\":{\"layers\":{}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"hidePanelTitles\":false,\"enhancements\":{}},\"title\":\"requests\"},{\"version\":\"8.6.0\",\"type\":\"lens\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":15,\"i\":\"2cedb00f-b501-49dc-b75d-f36c4a50194c\"},\"panelIndex\":\"2cedb00f-b501-49dc-b75d-f36c4a50194c\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsXY\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"6388f012-7d5e-449c-9f3d-01549369ae0f\",\"name\":\"indexpattern-datasource-layer-88c220c4-7099-4e43-96e0-d10087e4027d\"}],\"state\":{\"visualization\":{\"legend\":{\"isVisible\":true,\"position\":\"right\"},\"valueLabels\":\"hide\",\"fittingFunction\":\"None\",\"axisTitlesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"tickLabelsVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"labelsOrientation\":{\"x\":0,\"yLeft\":0,\"yRight\":0},\"gridlinesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"preferredSeriesType\":\"bar_stacked\",\"layers\":[{\"layerId\":\"88c220c4-7099-4e43-96e0-d10087e4027d\",\"accessors\":[\"06c52332-8dfb-49ea-a07d-9994d30c828b\"],\"position\":\"top\",\"seriesType\":\"bar_stacked\",\"showGridlines\":false,\"layerType\":\"data\",\"xAccessor\":\"16a51f5e-1f21-48da-a5f2-d9af31af9e35\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"formBased\":{\"layers\":{\"88c220c4-7099-4e43-96e0-d10087e4027d\":{\"columns\":{\"16a51f5e-1f21-48da-a5f2-d9af31af9e35\":{\"label\":\"Top 5 values of method.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"method.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"06c52332-8dfb-49ea-a07d-9994d30c828b\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"include\":[],\"exclude\":[],\"includeIsRegex\":false,\"excludeIsRegex\":false}},\"06c52332-8dfb-49ea-a07d-9994d30c828b\":{\"label\":\"Count of records\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"16a51f5e-1f21-48da-a5f2-d9af31af9e35\",\"06c52332-8dfb-49ea-a07d-9994d30c828b\"],\"incompleteColumns\":{},\"sampling\":1}}},\"textBased\":{\"layers\":{}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"hidePanelTitles\":false,\"enhancements\":{}},\"title\":\"methods\"}]",
+            "panelsJSON": "[{\"version\":\"8.6.0\",\"type\":\"lens\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"102a9ad6-13da-4afe-a378-11265b65476e\"},\"panelIndex\":\"102a9ad6-13da-4afe-a378-11265b65476e\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsPie\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"6ac556f7-8858-454e-8f80-b560e59bdc5f\",\"name\":\"indexpattern-datasource-layer-3576c048-3836-45b2-88ca-26d4d91a93b0\"}],\"state\":{\"visualization\":{\"shape\":\"donut\",\"layers\":[{\"layerId\":\"3576c048-3836-45b2-88ca-26d4d91a93b0\",\"primaryGroups\":[\"a0557df4-4862-472c-b940-359adca5e7a2\"],\"metrics\":[\"5613b90b-d7f0-4210-9eef-7e6a37d1b814\"],\"numberDisplay\":\"percent\",\"categoryDisplay\":\"default\",\"legendDisplay\":\"default\",\"nestedLegend\":false,\"layerType\":\"data\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"formBased\":{\"layers\":{\"3576c048-3836-45b2-88ca-26d4d91a93b0\":{\"columns\":{\"a0557df4-4862-472c-b940-359adca5e7a2\":{\"label\":\"Top 5 values of method.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"method.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"5613b90b-d7f0-4210-9eef-7e6a37d1b814\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"include\":[],\"exclude\":[],\"includeIsRegex\":false,\"excludeIsRegex\":false}},\"5613b90b-d7f0-4210-9eef-7e6a37d1b814\":{\"label\":\"Count of records\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"a0557df4-4862-472c-b940-359adca5e7a2\",\"5613b90b-d7f0-4210-9eef-7e6a37d1b814\"],\"incompleteColumns\":{},\"sampling\":1}}},\"textBased\":{\"layers\":{}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"hidePanelTitles\":false,\"enhancements\":{}},\"title\":\"methods\"},{\"version\":\"8.6.0\",\"type\":\"lens\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":15,\"i\":\"37d708b4-eca8-480e-a305-2956a946580f\"},\"panelIndex\":\"37d708b4-eca8-480e-a305-2956a946580f\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsPie\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"6ac556f7-8858-454e-8f80-b560e59bdc5f\",\"name\":\"indexpattern-datasource-layer-d4027788-d9d6-4a15-b616-bcb5a0e48a07\"}],\"state\":{\"visualization\":{\"shape\":\"pie\",\"layers\":[{\"layerId\":\"d4027788-d9d6-4a15-b616-bcb5a0e48a07\",\"primaryGroups\":[\"f9764d1a-a5c7-430c-afe7-6f9f64744673\"],\"metrics\":[\"abf986ee-2ae6-48f7-aa8e-b202216408ea\"],\"numberDisplay\":\"percent\",\"categoryDisplay\":\"default\",\"legendDisplay\":\"default\",\"nestedLegend\":false,\"layerType\":\"data\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"formBased\":{\"layers\":{\"d4027788-d9d6-4a15-b616-bcb5a0e48a07\":{\"columns\":{\"f9764d1a-a5c7-430c-afe7-6f9f64744673\":{\"label\":\"Top 5 values of request.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"request.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"abf986ee-2ae6-48f7-aa8e-b202216408ea\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"include\":[],\"exclude\":[],\"includeIsRegex\":false,\"excludeIsRegex\":false}},\"abf986ee-2ae6-48f7-aa8e-b202216408ea\":{\"label\":\"Count of records\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"f9764d1a-a5c7-430c-afe7-6f9f64744673\",\"abf986ee-2ae6-48f7-aa8e-b202216408ea\"],\"incompleteColumns\":{},\"sampling\":1}}},\"textBased\":{\"layers\":{}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"enhancements\":{}}}]",
             "title": "yotam portfolio",
             "version": 1
-        },
-        "references": [
+          },
+          "references": [
             {
-            "type": "index-pattern",
-            "id": "6388f012-7d5e-449c-9f3d-01549369ae0f",
-            "name": "ef76fe47-b225-4b83-8a6b-3a58970aa838:indexpattern-datasource-layer-f5d9e1d0-7606-4c03-9f42-44f318a65968"
+              "type": "index-pattern",
+              "id": "6ac556f7-8858-454e-8f80-b560e59bdc5f",
+              "name": "102a9ad6-13da-4afe-a378-11265b65476e:indexpattern-datasource-layer-3576c048-3836-45b2-88ca-26d4d91a93b0"
             },
             {
-            "type": "index-pattern",
-            "id": "6388f012-7d5e-449c-9f3d-01549369ae0f",
-            "name": "2cedb00f-b501-49dc-b75d-f36c4a50194c:indexpattern-datasource-layer-88c220c4-7099-4e43-96e0-d10087e4027d"
+              "type": "index-pattern",
+              "id": "6ac556f7-8858-454e-8f80-b560e59bdc5f",
+              "name": "37d708b4-eca8-480e-a305-2956a946580f:indexpattern-datasource-layer-d4027788-d9d6-4a15-b616-bcb5a0e48a07"
             }
-        ],
-        "migrationVersion": {
+          ],
+          "migrationVersion": {
             "dashboard": "8.6.0"
-        },
-        "coreMigrationVersion": "8.6.0"
+          },
+          "coreMigrationVersion": "8.6.0"
         },
         {
-        "id": "6388f012-7d5e-449c-9f3d-01549369ae0f",
-        "type": "index-pattern",
-        "namespaces": [
+          "id": "6ac556f7-8858-454e-8f80-b560e59bdc5f",
+          "type": "index-pattern",
+          "namespaces": [
             "default"
-        ],
-        "updated_at": "2023-02-15T09:09:07.361Z",
-        "created_at": "2023-02-15T09:09:07.361Z",
-        "version": "WzE3NSwxXQ==",
-        "attributes": {
+          ],
+          "updated_at": "2023-02-15T20:33:43.310Z",
+          "created_at": "2023-02-15T20:33:43.310Z",
+          "version": "WzUwLDFd",
+          "attributes": {
             "fieldAttrs": "{}",
-            "title": "logstash-2023.02.15",
+            "title": "logstash-yh",
             "timeFieldName": "@timestamp",
             "sourceFilters": "[]",
             "fields": "[]",
             "fieldFormatMap": "{}",
             "typeMeta": "{}",
             "runtimeFieldMap": "{}",
-            "name": "mydata"
-        },
-        "references": [],
-        "migrationVersion": {
+            "name": "yotam-dataview"
+          },
+          "references": [],
+          "migrationVersion": {
             "index-pattern": "8.0.0"
-        },
-        "coreMigrationVersion": "8.6.0"
+          },
+          "coreMigrationVersion": "8.6.0"
         }
-    ]
+      ]
     }
