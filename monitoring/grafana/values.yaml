@@ -656,8 +656,7 @@ dashboards:
     #     $RAW_JSON
     custom-dashboard:
       file: dashboards/yh-portfolio.json
-  another:
-    custom-dashboard:
+    second-dashboard:
       file: dashboards/node-exporter.json
   #   prometheus-stats:
   #     gnetId: 2
