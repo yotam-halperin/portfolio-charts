@@ -14,7 +14,7 @@ spec:
     namespace: logging
   syncPolicy:
     syncOptions:
-    - CreateNamespace=False
+    - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
