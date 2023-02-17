@@ -24,14 +24,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 2,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "dzh4eTJVz"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -108,85 +108,22 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "dzh4eTJVz"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "rate(container_cpu_usage_seconds_total { container=\"crossyroad\" } [5m] )",
+          "expr": "count by (namespace)(sum by (namespace,pod,container)(kube_pod_container_info{container!=\"\"}) unless sum by (namespace,pod,container)(kube_pod_container_resource_limits{resource=\"cpu\"}))",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "crossyroad containers CPU",
+      "title": "number of pods for namespace",
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "dzh4eTJVz"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 0
-      },
-      "id": 6,
-      "options": {
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "9.3.6",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "dzh4eTJVz"
-          },
-          "editorMode": "code",
-          "expr": "sum(kube_node_status_condition{condition=\"Ready\", status=\"true\"}==1)",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "number of ready nodes",
-      "type": "gauge"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "dzh4eTJVz"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -241,12 +178,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
+        "h": 8,
         "w": 12,
-        "x": 0,
-        "y": 8
+        "x": 12,
+        "y": 0
       },
-      "id": 2,
+      "id": 6,
       "options": {
         "legend": {
           "calcs": [],
@@ -263,22 +200,85 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "dzh4eTJVz"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "(sum by (node)(rate(node_cpu_seconds_total{mode!=\"idle\"}[2m]))*100)",
+          "expr": "rate(container_cpu_usage_seconds_total { container=\"crossyroad\" } [5m] )",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "CPU for node",
+      "title": "CPU of crossyroad containers",
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "dzh4eTJVz"
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 2,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "sum(kube_node_status_condition{condition=\"Ready\", status=\"true\"}==1)",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "number of available nodes",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -355,16 +355,16 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "dzh4eTJVz"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "count by (namespace)(sum by (namespace,pod,container)(kube_pod_container_info{container!=\"\"}) unless sum by (namespace,pod,container)(kube_pod_container_resource_limits{resource=\"cpu\"}))\n",
+          "expr": "(sum by (node)(rate(node_cpu_seconds_total{mode!=\"idle\"}[2m]))*100)",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "number of pods for namespace",
+      "title": "CPU for node",
       "type": "timeseries"
     }
   ],
@@ -375,13 +375,13 @@
     "list": []
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
-  "title": "yh-portfolio",
-  "uid": "Qr6Lm0JVz",
-  "version": 1,
+  "title": "yotam portfolio",
+  "uid": "llMWNA1Vk",
+  "version": 4,
   "weekStart": ""
 }

@@ -20,7 +20,7 @@ spec:
     - dns01:
         route53:
           region: eu-west-2
-          hostedZoneID: Z03492862PT1PY19EQIFA
+          hostedZoneID: Z02460903E1CDZX8MJD9R
           role: arn:aws:iam::644435390668:role/yh-tls-node-role
       selector:
         dnsZones:

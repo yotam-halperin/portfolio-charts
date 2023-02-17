@@ -655,7 +655,7 @@ dashboards:
     #   json: |
     #     $RAW_JSON
     custom-dashboard:
-      file: dashboards/yh-portfolio.json
+      file: dashboards/yotam-portfolio.json
     # second-dashboard:
     #   file: dashboards/node-exporter.json
   #   prometheus-stats:
