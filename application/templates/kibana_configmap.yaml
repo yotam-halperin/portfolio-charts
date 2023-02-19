@@ -46,12 +46,9 @@ data:
     wait_for_kibana
     import_data_view
     import_dashboards
-    sleep 30
 
   file.ndjson: |
-    {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"yotam-dataview","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-yh","typeMeta":"{}"},
-    "coreMigrationVersion":"8.6.0","created_at":"2023-02-19T20:33:43.310Z","id":"6ac556f7-8858-454e-8f80-b560e59bdc5f","migrationVersion":{"index-pattern":"8.0.0"},
-    "references":[],"type":"index-pattern","updated_at":"2023-02-19T20:33:43.310Z","version":"WzUwLDFd"}
+    {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"yh-dataview","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-yh","typeMeta":"{}"},"coreMigrationVersion":"8.6.0","created_at":"2023-02-19T13:00:30.025Z","id":"cc8c970d-3294-430e-8371-5d4824d3fb0f","migrationVersion":{"index-pattern":"8.0.0"},"references":[],"type":"index-pattern","updated_at":"2023-02-19T13:00:30.025Z","version":"WzE1MiwxXQ=="}
     {"excludedObjects":[],"excludedObjectsCount":0,"exportedCount":1,"missingRefCount":0,"missingReferences":[]}
 
   file.json: |
@@ -59,14 +56,14 @@ data:
       "version": "8.6.0",
       "objects": [
         {
-          "id": "ae566280-ad71-11ed-b461-955db46e72a3",
+          "id": "1055fc20-b056-11ed-92bc-cbaa8e7bbf18",
           "type": "dashboard",
           "namespaces": [
             "default"
           ],
-          "updated_at": "2023-02-19T20:45:28.616Z",
-          "created_at": "2023-02-19T20:45:28.616Z",
-          "version": "WzI0OCwxXQ==",
+          "updated_at": "2023-02-19T13:05:20.610Z",
+          "created_at": "2023-02-19T13:05:20.610Z",
+          "version": "WzMwOSwxXQ==",
           "attributes": {
             "kibanaSavedObjectMeta": {
               "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
@@ -74,20 +71,20 @@ data:
             "timeRestore": false,
             "optionsJSON": "{\"useMargins\":true,\"syncColors\":false,\"syncCursor\":true,\"syncTooltips\":false,\"hidePanelTitles\":false}",
             "description": "",
-            "panelsJSON": "[{\"version\":\"8.6.0\",\"type\":\"lens\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"102a9ad6-13da-4afe-a378-11265b65476e\"},\"panelIndex\":\"102a9ad6-13da-4afe-a378-11265b65476e\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsPie\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"6ac556f7-8858-454e-8f80-b560e59bdc5f\",\"name\":\"indexpattern-datasource-layer-3576c048-3836-45b2-88ca-26d4d91a93b0\"}],\"state\":{\"visualization\":{\"shape\":\"donut\",\"layers\":[{\"layerId\":\"3576c048-3836-45b2-88ca-26d4d91a93b0\",\"primaryGroups\":[\"a0557df4-4862-472c-b940-359adca5e7a2\"],\"metrics\":[\"5613b90b-d7f0-4210-9eef-7e6a37d1b814\"],\"numberDisplay\":\"percent\",\"categoryDisplay\":\"default\",\"legendDisplay\":\"default\",\"nestedLegend\":false,\"layerType\":\"data\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"formBased\":{\"layers\":{\"3576c048-3836-45b2-88ca-26d4d91a93b0\":{\"columns\":{\"a0557df4-4862-472c-b940-359adca5e7a2\":{\"label\":\"Top 5 values of method.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"method.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"5613b90b-d7f0-4210-9eef-7e6a37d1b814\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"include\":[],\"exclude\":[],\"includeIsRegex\":false,\"excludeIsRegex\":false}},\"5613b90b-d7f0-4210-9eef-7e6a37d1b814\":{\"label\":\"Count of records\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"a0557df4-4862-472c-b940-359adca5e7a2\",\"5613b90b-d7f0-4210-9eef-7e6a37d1b814\"],\"incompleteColumns\":{},\"sampling\":1}}},\"textBased\":{\"layers\":{}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"hidePanelTitles\":false,\"enhancements\":{}},\"title\":\"methods\"},{\"version\":\"8.6.0\",\"type\":\"lens\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":15,\"i\":\"37d708b4-eca8-480e-a305-2956a946580f\"},\"panelIndex\":\"37d708b4-eca8-480e-a305-2956a946580f\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsPie\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"6ac556f7-8858-454e-8f80-b560e59bdc5f\",\"name\":\"indexpattern-datasource-layer-d4027788-d9d6-4a15-b616-bcb5a0e48a07\"}],\"state\":{\"visualization\":{\"shape\":\"pie\",\"layers\":[{\"layerId\":\"d4027788-d9d6-4a15-b616-bcb5a0e48a07\",\"primaryGroups\":[\"f9764d1a-a5c7-430c-afe7-6f9f64744673\"],\"metrics\":[\"abf986ee-2ae6-48f7-aa8e-b202216408ea\"],\"numberDisplay\":\"percent\",\"categoryDisplay\":\"default\",\"legendDisplay\":\"default\",\"nestedLegend\":false,\"layerType\":\"data\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"formBased\":{\"layers\":{\"d4027788-d9d6-4a15-b616-bcb5a0e48a07\":{\"columns\":{\"f9764d1a-a5c7-430c-afe7-6f9f64744673\":{\"label\":\"Top 5 values of request.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"request.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"abf986ee-2ae6-48f7-aa8e-b202216408ea\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"include\":[],\"exclude\":[],\"includeIsRegex\":false,\"excludeIsRegex\":false}},\"abf986ee-2ae6-48f7-aa8e-b202216408ea\":{\"label\":\"Count of records\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"f9764d1a-a5c7-430c-afe7-6f9f64744673\",\"abf986ee-2ae6-48f7-aa8e-b202216408ea\"],\"incompleteColumns\":{},\"sampling\":1}}},\"textBased\":{\"layers\":{}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"enhancements\":{}}}]",
-            "title": "yotam portfolio",
+            "panelsJSON": "[{\"version\":\"8.6.0\",\"type\":\"lens\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"4866bb72-d45a-40b9-a0b5-d8d8e7f5bd99\"},\"panelIndex\":\"4866bb72-d45a-40b9-a0b5-d8d8e7f5bd99\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsPie\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"cc8c970d-3294-430e-8371-5d4824d3fb0f\",\"name\":\"indexpattern-datasource-layer-47805287-60bb-4dab-84e9-49f395674cc6\"}],\"state\":{\"visualization\":{\"shape\":\"donut\",\"layers\":[{\"layerId\":\"47805287-60bb-4dab-84e9-49f395674cc6\",\"primaryGroups\":[\"ecd7e88f-10fe-4459-b9a2-5d0f641f77ab\"],\"metrics\":[\"4c4f7555-96ff-4e54-acdf-1c823714911a\"],\"numberDisplay\":\"percent\",\"categoryDisplay\":\"default\",\"legendDisplay\":\"default\",\"nestedLegend\":false,\"layerType\":\"data\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"formBased\":{\"layers\":{\"47805287-60bb-4dab-84e9-49f395674cc6\":{\"columns\":{\"ecd7e88f-10fe-4459-b9a2-5d0f641f77ab\":{\"label\":\"Top 5 values of method.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"method.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"4c4f7555-96ff-4e54-acdf-1c823714911a\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"include\":[],\"exclude\":[],\"includeIsRegex\":false,\"excludeIsRegex\":false}},\"4c4f7555-96ff-4e54-acdf-1c823714911a\":{\"label\":\"Count of records\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"ecd7e88f-10fe-4459-b9a2-5d0f641f77ab\",\"4c4f7555-96ff-4e54-acdf-1c823714911a\"],\"incompleteColumns\":{},\"sampling\":1}}},\"textBased\":{\"layers\":{}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"hidePanelTitles\":false,\"enhancements\":{}},\"title\":\"methods\"},{\"version\":\"8.6.0\",\"type\":\"lens\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":15,\"i\":\"5d2d1a8b-408d-4043-921d-4159f593ad5e\"},\"panelIndex\":\"5d2d1a8b-408d-4043-921d-4159f593ad5e\",\"embeddableConfig\":{\"attributes\":{\"title\":\"\",\"visualizationType\":\"lnsXY\",\"type\":\"lens\",\"references\":[{\"type\":\"index-pattern\",\"id\":\"cc8c970d-3294-430e-8371-5d4824d3fb0f\",\"name\":\"indexpattern-datasource-layer-c9083d69-02e0-4ea0-a1d0-d253f0a64667\"}],\"state\":{\"visualization\":{\"legend\":{\"isVisible\":true,\"position\":\"right\"},\"valueLabels\":\"hide\",\"fittingFunction\":\"None\",\"axisTitlesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"tickLabelsVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"labelsOrientation\":{\"x\":0,\"yLeft\":0,\"yRight\":0},\"gridlinesVisibilitySettings\":{\"x\":true,\"yLeft\":true,\"yRight\":true},\"preferredSeriesType\":\"bar_stacked\",\"layers\":[{\"layerId\":\"c9083d69-02e0-4ea0-a1d0-d253f0a64667\",\"accessors\":[\"3a946b21-2d84-4069-aa25-e61d6f34e5c7\"],\"position\":\"top\",\"seriesType\":\"bar_stacked\",\"showGridlines\":false,\"layerType\":\"data\",\"xAccessor\":\"484eb55a-4ff8-4f0e-bfd4-6040d27d7195\"}]},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"datasourceStates\":{\"formBased\":{\"layers\":{\"c9083d69-02e0-4ea0-a1d0-d253f0a64667\":{\"columns\":{\"484eb55a-4ff8-4f0e-bfd4-6040d27d7195\":{\"label\":\"Top 5 values of request.keyword\",\"dataType\":\"string\",\"operationType\":\"terms\",\"scale\":\"ordinal\",\"sourceField\":\"request.keyword\",\"isBucketed\":true,\"params\":{\"size\":5,\"orderBy\":{\"type\":\"column\",\"columnId\":\"3a946b21-2d84-4069-aa25-e61d6f34e5c7\"},\"orderDirection\":\"desc\",\"otherBucket\":true,\"missingBucket\":false,\"parentFormat\":{\"id\":\"terms\"},\"include\":[],\"exclude\":[],\"includeIsRegex\":false,\"excludeIsRegex\":false}},\"3a946b21-2d84-4069-aa25-e61d6f34e5c7\":{\"label\":\"Count of records\",\"dataType\":\"number\",\"operationType\":\"count\",\"isBucketed\":false,\"scale\":\"ratio\",\"sourceField\":\"___records___\",\"params\":{\"emptyAsNull\":true}}},\"columnOrder\":[\"484eb55a-4ff8-4f0e-bfd4-6040d27d7195\",\"3a946b21-2d84-4069-aa25-e61d6f34e5c7\"],\"incompleteColumns\":{},\"sampling\":1}}},\"textBased\":{\"layers\":{}}},\"internalReferences\":[],\"adHocDataViews\":{}}},\"hidePanelTitles\":false,\"enhancements\":{}},\"title\":\"requests\"}]",
+            "title": "yh-dashboard",
             "version": 1
           },
           "references": [
             {
               "type": "index-pattern",
-              "id": "6ac556f7-8858-454e-8f80-b560e59bdc5f",
-              "name": "102a9ad6-13da-4afe-a378-11265b65476e:indexpattern-datasource-layer-3576c048-3836-45b2-88ca-26d4d91a93b0"
+              "id": "cc8c970d-3294-430e-8371-5d4824d3fb0f",
+              "name": "4866bb72-d45a-40b9-a0b5-d8d8e7f5bd99:indexpattern-datasource-layer-47805287-60bb-4dab-84e9-49f395674cc6"
             },
             {
               "type": "index-pattern",
-              "id": "6ac556f7-8858-454e-8f80-b560e59bdc5f",
-              "name": "37d708b4-eca8-480e-a305-2956a946580f:indexpattern-datasource-layer-d4027788-d9d6-4a15-b616-bcb5a0e48a07"
+              "id": "cc8c970d-3294-430e-8371-5d4824d3fb0f",
+              "name": "5d2d1a8b-408d-4043-921d-4159f593ad5e:indexpattern-datasource-layer-c9083d69-02e0-4ea0-a1d0-d253f0a64667"
             }
           ],
           "migrationVersion": {
@@ -96,14 +93,14 @@ data:
           "coreMigrationVersion": "8.6.0"
         },
         {
-          "id": "6ac556f7-8858-454e-8f80-b560e59bdc5f",
+          "id": "cc8c970d-3294-430e-8371-5d4824d3fb0f",
           "type": "index-pattern",
           "namespaces": [
             "default"
           ],
-          "updated_at": "2023-02-19T20:33:43.310Z",
-          "created_at": "2023-02-19T20:33:43.310Z",
-          "version": "WzUwLDFd",
+          "updated_at": "2023-02-19T13:00:30.025Z",
+          "created_at": "2023-02-19T13:00:30.025Z",
+          "version": "WzE1MiwxXQ==",
           "attributes": {
             "fieldAttrs": "{}",
             "title": "logstash-yh",
@@ -113,7 +110,7 @@ data:
             "fieldFormatMap": "{}",
             "typeMeta": "{}",
             "runtimeFieldMap": "{}",
-            "name": "yotam-dataview"
+            "name": "yh-dataview"
           },
           "references": [],
           "migrationVersion": {
