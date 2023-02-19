@@ -30,7 +30,7 @@ spec:
         - name: YH_MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: yhportfoliosecret
+              name: {{ .Values.externalSecret.clusterSecretName }}
               key: mysql-root-password	     
         envFrom:
         - configMapRef:

@@ -9,7 +9,9 @@ tls:
   enabled: true
   clusterissuer:
     name: letsencrypt-issuer
-
+    region: eu-west-2
+    hostedZoneID: Z02460903E1CDZX8MJD9R
+    role: arn:aws:iam::644435390668:role/yh-tls-node-role
 
 crossyDeployment:
   name: crossyroad
@@ -48,6 +50,19 @@ ingress:
   className: nginx
   domain: yotam.store
   secretNameCertificate: secret-tls
+
+
+### AWS Secrets Manager
+secretStore:
+  name: secretstore
+  awsSrevice: SecretsManager
+  region: eu-west-2
+
+externalSecret:
+  name: externalsecret
+  awsSecretName: yh_portfolio_secret
+  clusterSecretName: yhportfoliosecret
+
 
 
 ### MySQL database
@@ -110,10 +125,8 @@ mysql:
   initdbScriptsConfigMap: db-configmap
 
   secondary:
-    replicaCount: 1
+    replicaCount: 2
   
-  metrics:
-    enabled: false
 
 
 

@@ -19,5 +19,5 @@ data:
 
 kind: ConfigMap
 metadata:
-  name: db-configmap
+  name: {{ .Values.mysql.initdbScriptsConfigMap }}
   namespace: default

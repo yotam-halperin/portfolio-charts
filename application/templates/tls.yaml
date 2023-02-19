@@ -19,9 +19,9 @@ spec:
     solvers:
     - dns01:
         route53:
-          region: eu-west-2
-          hostedZoneID: Z02460903E1CDZX8MJD9R
-          role: arn:aws:iam::644435390668:role/yh-tls-node-role
+          region: {{ .Values.tls.clusterissuer.region }}
+          hostedZoneID: {{ .Values.tls.clusterissuer.hostedZoneID }}
+          role: {{ .Values.tls.clusterissuer.role }}
       selector:
         dnsZones:
           - "yotam.store"
