@@ -49,8 +49,8 @@ data:
 
   file.ndjson: |
     {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"yotam-dataview","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-yh","typeMeta":"{}"},
-    "coreMigrationVersion":"8.6.0","created_at":"2023-02-15T20:33:43.310Z","id":"6ac556f7-8858-454e-8f80-b560e59bdc5f","migrationVersion":{"index-pattern":"8.0.0"},
-    "references":[],"type":"index-pattern","updated_at":"2023-02-15T20:33:43.310Z","version":"WzUwLDFd"}
+    "coreMigrationVersion":"8.6.0","created_at":"2023-02-19T20:33:43.310Z","id":"6ac556f7-8858-454e-8f80-b560e59bdc5f","migrationVersion":{"index-pattern":"8.0.0"},
+    "references":[],"type":"index-pattern","updated_at":"2023-02-19T20:33:43.310Z","version":"WzUwLDFd"}
     {"excludedObjects":[],"excludedObjectsCount":0,"exportedCount":1,"missingRefCount":0,"missingReferences":[]}
 
   file.json: |
@@ -63,8 +63,8 @@ data:
           "namespaces": [
             "default"
           ],
-          "updated_at": "2023-02-15T20:45:28.616Z",
-          "created_at": "2023-02-15T20:45:28.616Z",
+          "updated_at": "2023-02-19T20:45:28.616Z",
+          "created_at": "2023-02-19T20:45:28.616Z",
           "version": "WzI0OCwxXQ==",
           "attributes": {
             "kibanaSavedObjectMeta": {
@@ -100,8 +100,8 @@ data:
           "namespaces": [
             "default"
           ],
-          "updated_at": "2023-02-15T20:33:43.310Z",
-          "created_at": "2023-02-15T20:33:43.310Z",
+          "updated_at": "2023-02-19T20:33:43.310Z",
+          "created_at": "2023-02-19T20:33:43.310Z",
           "version": "WzUwLDFd",
           "attributes": {
             "fieldAttrs": "{}",
