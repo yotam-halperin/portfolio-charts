@@ -46,6 +46,7 @@ data:
     wait_for_kibana
     import_data_view
     import_dashboards
+    sleep 30
 
   file.ndjson: |
     {"attributes":{"fieldAttrs":"{}","fieldFormatMap":"{}","fields":"[]","name":"yotam-dataview","runtimeFieldMap":"{}","sourceFilters":"[]","timeFieldName":"@timestamp","title":"logstash-yh","typeMeta":"{}"},
