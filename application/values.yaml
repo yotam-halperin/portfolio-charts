@@ -20,7 +20,7 @@ crossyDeployment:
 
 image:
   name: 644435390668.dkr.ecr.eu-west-2.amazonaws.com/crossyroad-backend
-  tag: 1.1.1
+  tag: 1.1.2
 
 nginxDeployment:
   name: nginx
