@@ -6,8 +6,8 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   acme:
-    server: https://acme-staging-v02.api.letsencrypt.org/directory  # for staging
-    # server: https://acme-v02.api.letsencrypt.org/directory # for production
+    # server: https://acme-staging-v02.api.letsencrypt.org/directory  # for staging
+    server: https://acme-v02.api.letsencrypt.org/directory # for production
 
     email: yotam@email.com
     privateKeySecretRef:

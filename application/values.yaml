@@ -33,6 +33,7 @@ nginxDeployment:
 # configmap
 configmap:
   name: myconf
+  sqlHost: crossyroad-mysql-primary-headless
 
 # main service between app to ingress
 backendService:
