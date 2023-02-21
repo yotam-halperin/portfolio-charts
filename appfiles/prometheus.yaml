@@ -1,20 +1,20 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: prometheus
-#   namespace: argocd
-# spec:
-#   project: default
-#   source:
-#     repoURL: git@github.com:yotam-halperin/portfolio-charts.git
-#     targetRevision: HEAD
-#     path: monitoring/prometheus
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: monitoring
-#   syncPolicy:
-#     syncOptions:
-#     - CreateNamespace=true
-#     automated:
-#       prune: true
-#       selfHeal: true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:yotam-halperin/portfolio-charts.git
+    targetRevision: HEAD
+    path: monitoring/prometheus
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
